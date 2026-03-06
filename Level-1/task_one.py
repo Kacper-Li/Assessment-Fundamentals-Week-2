@@ -23,6 +23,7 @@ class Assessment:
             raise ValueError("Score outside of valid range 0-100")
 
     def __str__(self):
+        """Human readable version string representation for Assessment object."""
         return f"{self.name} of type {self.type}. Score: {self.score}"
 
 
