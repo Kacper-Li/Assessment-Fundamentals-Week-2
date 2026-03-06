@@ -11,19 +11,19 @@ from datetime import date
 class Assessment:
     """Assessment framework."""
 
-    def __init__(self, name: str, type: str, score: float) -> None:
-        """Takes specific type and score between 0-100."""
+    def __init__(self, name: str, given_type: str, score: float) -> None:
+        """Takes specific given_type and score between 0-100."""
         self.name = name
-        self.type = type
+        self.given_type = given_type
         self.validate_type()
         self.score = score
         self.validate_score()
 
     def validate_type(self) -> None:
-        """Validates assessment's type upon initialisation."""
+        """Validates assessment's given_type upon initialisation."""
         valid = ['multiple-choice', 'technical', 'presentation']
-        if self.type.lower() not in valid:
-            raise ValueError("Assessment type not valid.")
+        if self.given_type.lower() not in valid:
+            raise ValueError("Assessment given_type not valid.")
 
     def validate_score(self) -> None:
         """Validates assessment's score upon initialisation."""
@@ -32,7 +32,7 @@ class Assessment:
 
     def __str__(self) -> str:
         """Human readable version string representation for Assessment object."""
-        return f"{self.name} of type {self.type}. Score: {self.score}"
+        return f"{self.name} of given_type {self.given_type}. Score: {self.score}"
 
 
 class MultipleChoiceAssessment(Assessment):
@@ -52,7 +52,7 @@ class TechnicalAssessment(Assessment):
     """Subclass of Assessment"""
 
     def __init__(self, name: str, score: float | int) -> None:
-        """Name and score required, type inferred"""
+        """Name and score required, given_type inferred"""
         super().__init__(name, "technical", score)
         self.weight = 1
 
@@ -65,7 +65,7 @@ class PresentationAssessment(Assessment):
     """Subclass of Assessment"""
 
     def __init__(self, name: str, score: float | int) -> None:
-        """Name and score required, type inferred"""
+        """Name and score required, given_type inferred"""
         super().__init__(name, "presentation", score)
         self.weight = 0.6
 
@@ -109,11 +109,11 @@ class Trainee:
                 return assessment
         return None
 
-    def get_assessment_of_type(self, type: str) -> list[Assessment]:
-        """Returns list of all assessments of given `type`"""
+    def get_assessment_of_type(self, given_type: str) -> list[Assessment]:
+        """Returns list of all assessments of given `given_type`"""
         valid_assessments = []
         for assessment in self.assessments:
-            if assessment.type == type:
+            if assessment.given_type == given_type:
                 valid_assessments.append(assessment)
         return valid_assessments
 
@@ -160,18 +160,18 @@ class Question:
 class Quiz:
     """Quiz template that handles questions"""
 
-    def __init__(self, questions: list[Question], name: str, type: str):
-        """Takes values to describe specific quiz type."""
+    def __init__(self, questions: list[Question], name: str, given_type: str):
+        """Takes values to describe specific quiz given_type."""
         self.questions = questions
         self.name = name
-        self.type = type
+        self.given_type = given_type
         self.validate_questions()
 
     def validate_name_and_type(self):
         """Ensures both are str"""
         if not isinstance(self.name, str):
             raise TypeError("Name should be a string.")
-        if not isinstance(self.type, str):
+        if not isinstance(self.given_type, str):
             raise TypeError("Type value needs to be a string.")
 
     def validate_questions(self):
@@ -203,17 +203,17 @@ class Marking:
         return int(points * 100 / num_of_questions)
 
     def generate_assessment(self) -> Assessment:
-        """Generates proper assessment type from quiz."""
+        """Generates proper assessment given_type from quiz."""
         quiz = self._quiz
-        if quiz.type == "presentation":
+        if quiz.given_type == "presentation":
             ass = PresentationAssessment(quiz.name, self.mark())
-        elif quiz.type == "multiple-choice":
+        elif quiz.given_type == "multiple-choice":
             ass = MultipleChoiceAssessment(quiz.name, self.mark())
-        elif quiz.type == "technical":
+        elif quiz.given_type == "technical":
             ass = TechnicalAssessment(quiz.name, self.mark())
         else:
             raise ValueError(
-                "We don't know how, but you managed to slip an invalid type through.")
+                "We don't know how, but you managed to slip an invalid given_type through.")
         return ass
 
 
