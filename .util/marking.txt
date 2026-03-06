@@ -5,9 +5,9 @@ collected 24 items
 
 Level-1/test_one_task.py .........                                       [ 37%]
 Level-2/test_two_task.py .......                                         [ 66%]
-Level-3/test_three_task.py FFFFFFFF                                      [100%]
+Level-3/test_three_task.py ........                                      [100%]
 
-========================= 8 failed, 16 passed in 0.04s =========================
+============================== 24 passed in 0.03s ==============================
 ************* Module task_one
 Level-1/task_one.py:33:0: C0301: Line too long (113/100) (line-too-long)
 Level-1/task_one.py:1:0: C0114: Missing module docstring (missing-module-docstring)
@@ -22,16 +22,17 @@ Level-3/task_three.py:79:0: C0301: Line too long (113/100) (line-too-long)
 Level-3/task_three.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 Level-3/task_three.py:13:34: W0622: Redefining built-in 'type' (redefined-builtin)
 Level-3/task_three.py:105:37: W0622: Redefining built-in 'type' (redefined-builtin)
-Level-3/task_three.py:125:0: C0115: Missing class docstring (missing-class-docstring)
 Level-3/task_three.py:125:0: R0903: Too few public methods (0/2) (too-few-public-methods)
-Level-3/task_three.py:133:0: C0115: Missing class docstring (missing-class-docstring)
-Level-3/task_three.py:135:23: W0621: Redefining name 'questions' from outer scope (line 149) (redefined-outer-name)
-Level-3/task_three.py:135:51: W0622: Redefining built-in 'type' (redefined-builtin)
-Level-3/task_three.py:133:0: R0903: Too few public methods (0/2) (too-few-public-methods)
-Level-3/task_three.py:141:0: C0115: Missing class docstring (missing-class-docstring)
-Level-3/task_three.py:143:23: W0621: Redefining name 'quiz' from outer scope (line 156) (redefined-outer-name)
-Level-3/task_three.py:141:0: R0903: Too few public methods (0/2) (too-few-public-methods)
+Level-3/task_three.py:138:23: W0621: Redefining name 'questions' from outer scope (line 175) (redefined-outer-name)
+Level-3/task_three.py:138:61: W0622: Redefining built-in 'type' (redefined-builtin)
+Level-3/task_three.py:135:0: R0903: Too few public methods (0/2) (too-few-public-methods)
+Level-3/task_three.py:145:0: C0115: Missing class docstring (missing-class-docstring)
+Level-3/task_three.py:147:23: W0621: Redefining name 'quiz' from outer scope (line 182) (redefined-outer-name)
+Level-3/task_three.py:153:8: W0621: Redefining name 'questions' from outer scope (line 175) (redefined-outer-name)
+Level-3/task_three.py:162:4: C0116: Missing function or method docstring (missing-function-docstring)
+Level-3/task_three.py:163:8: W0621: Redefining name 'quiz' from outer scope (line 182) (redefined-outer-name)
+Level-3/task_three.py:170:15: E0606: Possibly using variable 'ass' before assignment (possibly-used-before-assignment)
 
 ------------------------------------------------------------------
-Your code has been rated at 8.99/10 (previous run: 8.99/10, +0.00)
+Your code has been rated at 8.85/10 (previous run: 8.85/10, +0.00)
 
