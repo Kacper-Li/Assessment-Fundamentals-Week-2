@@ -98,6 +98,14 @@ class Trainee:
                 return assessment
         return None
 
+    def get_assessment_of_type(self, type: str) -> list[Assessment]:
+        """Returns list of all assessments of given `type`"""
+        valid_assessments = []
+        for assessment in self.assessments:
+            if assessment.type == type:
+                valid_assessments.append(assessment)
+        return valid_assessments
+
     def __str__(self):
         """Human readable object string representation."""
         return f"{self.name} trainee object"
