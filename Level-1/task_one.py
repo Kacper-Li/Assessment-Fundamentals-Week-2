@@ -19,19 +19,22 @@ class Assessment:
 
     def validate_score(self):
         """Validates assessment's score upon initialisation."""
-        if self.score not in range(0, 101):
+        if (self.score < 0) or (self.score > 100):
             raise ValueError("Score outside of valid range 0-100")
+
+    def __str__(self):
+        return f"{self.name} of type {self.type}. Score: {self.score}"
 
 
 class Trainee:
     """Trainee framework."""
 
-    def __init__(self, name: str, email: str, date_of_birth: date, assessments: list[Assessment]) -> None:
+    def __init__(self, name: str, email: str, date_of_birth: date, assessments: list[Assessment] = None) -> None:
         """initialises a trainee with relevant details nad assesments done."""
         self.name = name
         self.email = email
         self.date_of_birth = date_of_birth
-        self.assessments = assessments
+        self.assessments = assessments if assessments else []
 
     def get_age(self) -> int:
         """Gets age from date_of_birth."""
@@ -51,6 +54,10 @@ class Trainee:
             if assessment.name == name:
                 return assessment
         return None
+
+    def __str__(self):
+        """Human readable object string representation."""
+        return f"{self.name} trainee object"
 
 
 if __name__ == "__main__":
