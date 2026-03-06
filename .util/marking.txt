@@ -13,12 +13,6 @@ Level-1/task_one.py:7:34: W0622: Redefining built-in 'type' (redefined-builtin)
 Level-2/task_two.py:75:0: C0301: Line too long (113/100) (line-too-long)
 Level-2/task_two.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 Level-2/task_two.py:13:34: W0622: Redefining built-in 'type' (redefined-builtin)
-Level-2/task_two.py:39:34: W0622: Redefining built-in 'type' (redefined-builtin)
-Level-2/task_two.py:51:34: W0622: Redefining built-in 'type' (redefined-builtin)
-Level-2/task_two.py:63:34: W0622: Redefining built-in 'type' (redefined-builtin)
-Level-2/task_two.py:117:27: E1120: No value for argument 'score' in constructor call (no-value-for-parameter)
-Level-2/task_two.py:119:27: E1120: No value for argument 'score' in constructor call (no-value-for-parameter)
-Level-2/task_two.py:121:27: E1120: No value for argument 'score' in constructor call (no-value-for-parameter)
 ************* Module task_three
 Level-3/task_three.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 Level-3/task_three.py:17:0: C0115: Missing class docstring (missing-class-docstring)
@@ -32,5 +26,5 @@ Level-3/task_three.py:35:23: W0621: Redefining name 'quiz' from outer scope (lin
 Level-3/task_three.py:33:0: R0903: Too few public methods (0/2) (too-few-public-methods)
 
 ------------------------------------------------------------------
-Your code has been rated at 7.38/10 (previous run: 7.38/10, +0.00)
+Your code has been rated at 8.77/10 (previous run: 8.77/10, +0.00)
 
