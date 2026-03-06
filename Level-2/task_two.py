@@ -1,3 +1,4 @@
+"""Task 2 that implements subclasses in more detail."""
 from datetime import date
 
 
@@ -10,18 +11,18 @@ from datetime import date
 class Assessment:
     """Assessment framework."""
 
-    def __init__(self, name: str, type: str, score: float) -> None:
+    def __init__(self, name: str, given_type: str, score: float) -> None:
         self.name = name
-        self.type = type
+        self.given_type = given_type
         self.validate_type()
         self.score = score
         self.validate_score()
 
     def validate_type(self):
-        """Validates assessment's type upon initialisation."""
+        """Validates assessment's given_type upon initialisation."""
         valid = ['multiple-choice', 'technical', 'presentation']
-        if self.type.lower() not in valid:
-            raise ValueError("Assessment type not valid.")
+        if self.given_type.lower() not in valid:
+            raise ValueError("Assessment given_type not valid.")
 
     def validate_score(self):
         """Validates assessment's score upon initialisation."""
@@ -30,7 +31,7 @@ class Assessment:
 
     def __str__(self):
         """Human readable version string representation for Assessment object."""
-        return f"{self.name} of type {self.type}. Score: {self.score}"
+        return f"{self.name} of given_type {self.given_type}. Score: {self.score}"
 
 
 class MultipleChoiceAssessment(Assessment):
@@ -72,7 +73,13 @@ class PresentationAssessment(Assessment):
 class Trainee:
     """Trainee framework."""
 
-    def __init__(self, name: str, email: str, date_of_birth: date, assessments: list[Assessment] = None) -> None:
+    def __init__(
+        self,
+        name: str,
+        email: str,
+        date_of_birth: date,
+        assessments: list[Assessment] = None
+    ) -> None:
         """initialises a trainee with relevant details nad assesments done."""
         self.name = name
         self.email = email
@@ -98,11 +105,11 @@ class Trainee:
                 return assessment
         return None
 
-    def get_assessment_of_type(self, type: str) -> list[Assessment]:
-        """Returns list of all assessments of given `type`"""
+    def get_assessment_of_type(self, given_type: str) -> list[Assessment]:
+        """Returns list of all assessments of given `given_type`"""
         valid_assessments = []
         for assessment in self.assessments:
-            if assessment.type == type:
+            if assessment.given_type == given_type:
                 valid_assessments.append(assessment)
         return valid_assessments
 
