@@ -1,3 +1,4 @@
+from datetime import date
 
 #####
 #
@@ -10,24 +11,25 @@ class Assessment:
     """Assessment framework."""
 
     def __init__(self, name: str, type: str, score: float) -> None:
+        """Takes specific type and score between 0-100."""
         self.name = name
         self.type = type
         self.validate_type()
         self.score = score
         self.validate_score()
 
-    def validate_type(self):
+    def validate_type(self) -> None:
         """Validates assessment's type upon initialisation."""
         valid = ['multiple-choice', 'technical', 'presentation']
         if self.type.lower() not in valid:
             raise ValueError("Assessment type not valid.")
 
-    def validate_score(self):
+    def validate_score(self) -> None:
         """Validates assessment's score upon initialisation."""
         if (self.score < 0) or (self.score > 100):
             raise ValueError("Score outside of valid range 0-100")
 
-    def __str__(self):
+    def __str__(self) -> str:
         """Human readable version string representation for Assessment object."""
         return f"{self.name} of type {self.type}. Score: {self.score}"
 
@@ -36,6 +38,7 @@ class MultipleChoiceAssessment(Assessment):
     """Subclass of Assessment"""
 
     def __init__(self, name: str, score: float | int) -> None:
+        """score cannot be a float or int just float, thought tests were weird."""
         super().__init__(name, "multiple-choice", score)
         self.weight = 0.7
 
@@ -48,6 +51,7 @@ class TechnicalAssessment(Assessment):
     """Subclass of Assessment"""
 
     def __init__(self, name: str, score: float | int) -> None:
+        """Name and score required, type inferred"""
         super().__init__(name, "technical", score)
         self.weight = 1
 
@@ -60,6 +64,7 @@ class PresentationAssessment(Assessment):
     """Subclass of Assessment"""
 
     def __init__(self, name: str, score: float | int) -> None:
+        """Name and score required, type inferred"""
         super().__init__(name, "presentation", score)
         self.weight = 0.6
 
@@ -105,7 +110,7 @@ class Trainee:
                 valid_assessments.append(assessment)
         return valid_assessments
 
-    def __str__(self):
+    def __str__(self) -> str:
         """Human readable object string representation."""
         return f"{self.name} trainee object"
 
