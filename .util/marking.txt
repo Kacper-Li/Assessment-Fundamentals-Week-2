@@ -12,12 +12,7 @@ Level-3/test_three_task.py ........                                      [100%]
 Level-1/task_one.py:33:0: C0301: Line too long (113/100) (line-too-long)
 Level-1/task_one.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 Level-1/task_one.py:7:34: W0622: Redefining built-in 'type' (redefined-builtin)
-************* Module task_two
-Level-2/task_two.py:75:0: C0301: Line too long (113/100) (line-too-long)
-Level-2/task_two.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-Level-2/task_two.py:13:34: W0622: Redefining built-in 'type' (redefined-builtin)
-Level-2/task_two.py:101:37: W0622: Redefining built-in 'type' (redefined-builtin)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.71/10 (previous run: 9.71/10, +0.00)
+Your code has been rated at 9.88/10 (previous run: 9.88/10, +0.00)
 
