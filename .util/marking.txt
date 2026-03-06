@@ -6,7 +6,7 @@ collected 9 items / 2 errors
 !!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!
 ============================== 2 errors in 0.13s ===============================
 ************* Module task_one
-Level-1/task_one.py:32:0: C0301: Line too long (113/100) (line-too-long)
+Level-1/task_one.py:33:0: C0301: Line too long (113/100) (line-too-long)
 Level-1/task_one.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 Level-1/task_one.py:7:34: W0622: Redefining built-in 'type' (redefined-builtin)
 ************* Module task_two
