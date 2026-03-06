@@ -1,3 +1,4 @@
+"""Task 3 of Technical Assessment. Kinda uses previous levels (not really)"""
 from datetime import date
 
 #####
@@ -76,7 +77,13 @@ class PresentationAssessment(Assessment):
 class Trainee:
     """Trainee framework."""
 
-    def __init__(self, name: str, email: str, date_of_birth: date, assessments: list[Assessment] = None) -> None:
+    def __init__(
+        self,
+        name: str,
+        email: str,
+        date_of_birth: date,
+        assessments: list[Assessment] = None
+    ) -> None:
         """initialises a trainee with relevant details nad assesments done."""
         self.name = name
         self.email = email
@@ -130,6 +137,24 @@ class Question:
         self.question = question
         self.chosen_answer = chosen_answer
         self.correct_answer = correct_answer
+        self.validate_question()
+        self.validate_chosen_answer()
+        self.validate_correct_answer()
+
+    def validate_question(self) -> None:
+        """Validates that question is a string"""
+        if not isinstance(self.question, str):
+            raise TypeError("Question is required to be a string.")
+
+    def validate_chosen_answer(self) -> None:
+        """Validates that chosen_answer is a string"""
+        if not isinstance(self.question, str):
+            raise TypeError("Chosen answer is required to be a string.")
+
+    def validate_correct_answer(self) -> None:
+        """Validates that correct_answer is a string"""
+        if not isinstance(self.question, str):
+            raise TypeError("Correct answer is required to be a string.")
 
 
 class Quiz:
@@ -142,6 +167,13 @@ class Quiz:
         self.type = type
         self.validate_questions()
 
+    def validate_name_and_type(self):
+        """Ensures both are str"""
+        if not isinstance(self.name, str):
+            raise TypeError("Name should be a string.")
+        if not isinstance(self.type, str):
+            raise TypeError("Type value needs to be a string.")
+
     def validate_questions(self):
         """Bounds question list between 0 and 100"""
         num_of_questions = len(self.questions)
@@ -152,8 +184,10 @@ class Quiz:
 
 
 class Marking:
+    """Controls marking of a quiz."""
 
     def __init__(self, quiz: Quiz) -> None:
+        """Initialises the quiz for marking."""
         self._quiz = quiz
 
     def mark(self) -> int:
@@ -169,25 +203,29 @@ class Marking:
         return int(points * 100 / num_of_questions)
 
     def generate_assessment(self) -> Assessment:
+        """Generates proper assessment type from quiz."""
         quiz = self._quiz
         if quiz.type == "presentation":
             ass = PresentationAssessment(quiz.name, self.mark())
-        if quiz.type == "multiple-choice":
+        elif quiz.type == "multiple-choice":
             ass = MultipleChoiceAssessment(quiz.name, self.mark())
-        if quiz.type == "technical":
+        elif quiz.type == "technical":
             ass = TechnicalAssessment(quiz.name, self.mark())
+        else:
+            raise ValueError(
+                "We don't know how, but you managed to slip an invalid type through.")
         return ass
 
 
 if __name__ == "__main__":
     # Example questions and quiz
-    questions = [
+    questions1 = [
         Question("What is 1 + 1? A:2 B:4 C:5 D:8", "A", "A"),
         Question("What is 2 + 2? A:2 B:4 C:5 D:8", "B", "B"),
         Question("What is 3 + 3? A:2 B:4 C:6 D:8", "C", "C"),
         Question("What is 4 + 4? A:2 B:4 C:5 D:8", "D", "D"),
         Question("What is 5 + 5? A:10 B:4 C:5 D:8", "A", "A"),
     ]
-    quiz = Quiz(questions, "Maths Quiz", "multiple-choice")
+    quiz1 = Quiz(questions1, "Maths Quiz", "multiple-choice")
 
     # Add an implementation for the Marking class below to test your code
