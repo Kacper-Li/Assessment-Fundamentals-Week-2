@@ -6,10 +6,9 @@ collected 9 items / 2 errors
 !!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!
 ============================== 2 errors in 0.13s ===============================
 ************* Module task_one
-Level-1/task_one.py:29:0: C0301: Line too long (106/100) (line-too-long)
+Level-1/task_one.py:32:0: C0301: Line too long (113/100) (line-too-long)
 Level-1/task_one.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 Level-1/task_one.py:7:34: W0622: Redefining built-in 'type' (redefined-builtin)
-Level-1/task_one.py:57:14: E1120: No value for argument 'assessments' in constructor call (no-value-for-parameter)
 ************* Module task_two
 Level-2/task_two.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 Level-2/task_two.py:19:14: E0602: Undefined variable 'Trainee' (undefined-variable)
@@ -29,5 +28,5 @@ Level-3/task_three.py:35:23: W0621: Redefining name 'quiz' from outer scope (lin
 Level-3/task_three.py:33:0: R0903: Too few public methods (0/2) (too-few-public-methods)
 
 ------------------------------------------------------------------
-Your code has been rated at 4.51/10 (previous run: 4.51/10, +0.00)
+Your code has been rated at 5.47/10 (previous run: 5.47/10, +0.00)
 
