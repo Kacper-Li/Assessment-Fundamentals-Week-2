@@ -123,16 +123,20 @@ class Trainee:
 
 
 class Question:
+    """Question object that stores questions and answers"""
 
     def __init__(self, question: str, chosen_answer: str, correct_answer: str):
+        """Completely different to what we made before, but another way to store questions."""
         self.question = question
         self.chosen_answer = chosen_answer
         self.correct_answer = correct_answer
 
 
 class Quiz:
+    """Quiz template that handles questions"""
 
-    def __init__(self, questions: list, name: str, type: str):
+    def __init__(self, questions: list[Question], name: str, type: str):
+        """Takes values to describe specific quiz type."""
         self.questions = questions
         self.name = name
         self.type = type
@@ -141,7 +145,29 @@ class Quiz:
 class Marking:
 
     def __init__(self, quiz: Quiz) -> None:
-        pass
+        self._quiz = quiz
+
+    def mark(self) -> int:
+        """Returns total score for assessment as %."""
+        points = 0
+        questions = self._quiz.questions
+        if questions == []:
+            return 0
+        num_of_questions = len(questions)
+        for question in questions:
+            if question.chosen_answer == question.correct_answer:
+                points += 1
+        return int(points * 100 / num_of_questions)
+
+    def generate_assessment(self) -> Assessment:
+        quiz = self._quiz
+        if quiz.type == "presentation":
+            ass = PresentationAssessment(quiz.name, self.mark())
+        if quiz.type == "multiple-choice":
+            ass = MultipleChoiceAssessment(quiz.name, self.mark())
+        if quiz.type == "technical":
+            ass = TechnicalAssessment(quiz.name, self.mark())
+        return ass
 
 
 if __name__ == "__main__":
