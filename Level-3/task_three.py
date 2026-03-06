@@ -140,6 +140,15 @@ class Quiz:
         self.questions = questions
         self.name = name
         self.type = type
+        self.validate_questions()
+
+    def validate_questions(self):
+        """Bounds question list between 0 and 100"""
+        num_of_questions = len(self.questions)
+        if num_of_questions < 0:
+            raise ValueError("Uhh... less than 0 questions... input?")
+        if num_of_questions > 100:
+            raise ValueError("The quiz is simply too big, add less questions.")
 
 
 class Marking:
