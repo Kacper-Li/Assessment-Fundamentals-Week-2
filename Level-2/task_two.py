@@ -20,7 +20,7 @@ class Assessment:
     def validate_type(self):
         """Validates assessment's type upon initialisation."""
         valid = ['multiple-choice', 'technical', 'presentation']
-        if self.type not in valid:
+        if self.type.lower() not in valid:
             raise ValueError("Assessment type not valid.")
 
     def validate_score(self):
@@ -36,37 +36,37 @@ class Assessment:
 class MultipleChoiceAssessment(Assessment):
     """Subclass of Assessment"""
 
-    def __init__(self, name: str, type: str, score: float | int) -> None:
-        super().__init__(name, type, score)
+    def __init__(self, name: str, score: float | int) -> None:
+        super().__init__(name, "multiple-choice", score)
         self.weight = 0.7
 
-    def calculate_score(self) -> int:
+    def calculate_score(self) -> float:
         """Calculates specific score for weighting."""
-        return int(self.score * self.weight)
+        return self.score * self.weight
 
 
 class TechnicalAssessment(Assessment):
     """Subclass of Assessment"""
 
-    def __init__(self, name: str, type: str, score: float | int) -> None:
-        super().__init__(name, type, score)
+    def __init__(self, name: str, score: float | int) -> None:
+        super().__init__(name, "technical", score)
         self.weight = 1
 
-    def calculate_score(self) -> int:
+    def calculate_score(self) -> float:
         """Calculates specific score for weighting."""
-        return int(self.score)
+        return self.score
 
 
 class PresentationAssessment(Assessment):
     """Subclass of Assessment"""
 
-    def __init__(self, name: str, type: str, score: float | int) -> None:
-        super().__init__(name, type, score)
+    def __init__(self, name: str, score: float | int) -> None:
+        super().__init__(name, "presentation", score)
         self.weight = 0.6
 
-    def calculate_score(self) -> int:
+    def calculate_score(self) -> float:
         """Calculates specific score for weighting."""
-        return int(self.score * self.weight)
+        return self.score * self.weight
 
 
 class Trainee:
