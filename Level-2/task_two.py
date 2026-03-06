@@ -33,6 +33,42 @@ class Assessment:
         return f"{self.name} of type {self.type}. Score: {self.score}"
 
 
+class MultipleChoiceAssessment(Assessment):
+    """Subclass of Assessment"""
+
+    def __init__(self, name: str, type: str, score: float | int) -> None:
+        super().__init__(name, type, score)
+        self.weight = 0.7
+
+    def calculate_score(self) -> int:
+        """Calculates specific score for weighting."""
+        return int(self.score * self.weight)
+
+
+class TechnicalAssessment(Assessment):
+    """Subclass of Assessment"""
+
+    def __init__(self, name: str, type: str, score: float | int) -> None:
+        super().__init__(name, type, score)
+        self.weight = 1
+
+    def calculate_score(self) -> int:
+        """Calculates specific score for weighting."""
+        return int(self.score)
+
+
+class PresentationAssessment(Assessment):
+    """Subclass of Assessment"""
+
+    def __init__(self, name: str, type: str, score: float | int) -> None:
+        super().__init__(name, type, score)
+        self.weight = 0.6
+
+    def calculate_score(self) -> int:
+        """Calculates specific score for weighting."""
+        return int(self.score * self.weight)
+
+
 class Trainee:
     """Trainee framework."""
 
